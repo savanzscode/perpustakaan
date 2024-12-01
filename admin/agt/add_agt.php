@@ -11,8 +11,8 @@ if (strlen($tambah) == 1){
 $format = "A"."00".$tambah;
  	}else if (strlen($tambah) == 2){
  	$format = "A"."0".$tambah;
-			}else (strlen($tambah) == 3){
-			$format = "A".$tambah
+			}else if(strlen($tambah) == 3){
+			$format = "A".$tambah;
 				}
 ?>
 
@@ -44,9 +44,8 @@ $format = "A"."00".$tambah;
 				<form action="" method="post" enctype="multipart/form-data">
 					<div class="box-body">
 						<div class="form-group">
-							<label>ID anggota</label>
-							<input type="text" name="id_anggota" id="id_anggota" class="form-control" value="<?php echo $format; ?>"
-							 readonly/>
+							<label>NIS/NISN</label>
+							<input type="text" name="id_anggota" id="id_anggota" class="form-control"/>
 						</div>
 
 						<div class="form-group">

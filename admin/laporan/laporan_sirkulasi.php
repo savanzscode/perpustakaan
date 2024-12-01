@@ -49,7 +49,7 @@
 				tb_sirkulasi.id_sk,
 				tb_sirkulasi.tgl_pinjam,
 				tb_sirkulasi.tgl_kembali,
-				tb_sirkulasi.tgl_dikembalikan,
+				tb_sirkulasi.tgl_kembali,
                   	if(datediff(now( ) , tb_sirkulasi.tgl_kembali)<=0,0,datediff(now( ) , tb_sirkulasi.tgl_kembali) ) telat_pengembalian FROM tb_sirkulasi 
 					JOIN tb_anggota ON tb_anggota.id_anggota=tb_sirkulasi.id_anggota 
 					JOIN tb_buku ON tb_buku.id_buku=tb_sirkulasi.id_buku where tb_sirkulasi.status='KEM'
@@ -68,7 +68,7 @@
 						<td>'.$data['nama'].'</td>
 						<td>'.date_format(new DateTime($data['tgl_pinjam']),'d/M/Y').'</td>
 						<td>'.date_format(new DateTime($data['tgl_kembali']),'d/M/Y').'</td>
-						<td>'.date_format(new DateTime($data['tgl_dikembalikan']),'d/M/Y').'</td>
+						<td>'.date_format(new DateTime($data['tgl_kembali']),'d/M/Y').'</td>
 						<td>Rp. '.number_format($data['telat_pengembalian']*$tarif_denda,0,',','.').'</td>
 						</tr>';
 				}

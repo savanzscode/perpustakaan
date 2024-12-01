@@ -20,7 +20,7 @@ include "inc/koneksi.php";
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SI PERPUSTAKAAN</title>
+	<title>PERPUSTAKAAN BY CRISTIAN</title>
 	<link rel="icon" href="dist/img/logo.png">
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -52,7 +52,7 @@ include "inc/koneksi.php";
 			<a href="index.php" class="logo">
 				<span class="logo-lg">
 					<img src="dist/img/logo.png" width="37px">
-					<b>E-Library</b>
+					<b>EL YAYAT</b>
 				</span>
 			</a>
 			<!-- Header Navbar: style can be found in header.less -->
@@ -72,7 +72,7 @@ include "inc/koneksi.php";
 							<a class="dropdown-toggle">
 								<span>
 									<b>
-										Sistem Informasi Perpustakaan Berbasis Web V 1.0
+										Sistem Informasi Perpustakaan Berbasis Web
 									</b>
 								</span>
 							</a>

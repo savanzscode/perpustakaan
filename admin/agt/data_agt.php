@@ -27,7 +27,7 @@
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>Id Anggota</th>
+							<th>NIS/NISN</th>
 							<th>Nama</th>
 							<th>JK</th>
 							<th>Kelas</th>

@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Jun 2020 pada 06.17
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.2.12
+-- Generation Time: Dec 01, 2024 at 03:41 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `log_pinjam`
+-- Table structure for table `log_pinjam`
 --
 
 CREATE TABLE `log_pinjam` (
@@ -33,22 +32,19 @@ CREATE TABLE `log_pinjam` (
   `id_buku` varchar(10) NOT NULL,
   `id_anggota` varchar(10) NOT NULL,
   `tgl_pinjam` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `log_pinjam`
+-- Dumping data for table `log_pinjam`
 --
 
 INSERT INTO `log_pinjam` (`id_log`, `id_buku`, `id_anggota`, `tgl_pinjam`) VALUES
-(1, 'B001', 'A001', '2020-06-23'),
-(2, 'B002', 'A001', '2020-06-25'),
-(3, 'B003', 'A002', '2020-06-01'),
-(4, 'B002', 'A005', '2020-06-23');
+(5, 'B002', '106205', '2024-12-20');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_anggota`
+-- Table structure for table `tb_anggota`
 --
 
 CREATE TABLE `tb_anggota` (
@@ -57,23 +53,20 @@ CREATE TABLE `tb_anggota` (
   `jekel` enum('Laki-laki','Perempuan') NOT NULL,
   `kelas` varchar(50) NOT NULL,
   `no_hp` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `tb_anggota`
+-- Dumping data for table `tb_anggota`
 --
 
 INSERT INTO `tb_anggota` (`id_anggota`, `nama`, `jekel`, `kelas`, `no_hp`) VALUES
-('A001', 'Ana', 'Perempuan', 'juwana', '089987789000'),
-('A002', 'Bagus', 'Laki-laki', 'demak', '089987789098'),
-('A003', 'Citra', 'Perempuan', 'demak', '085878526048'),
-('A004', 'Didik', 'Laki-laki', 'pati', '087789987654'),
-('A005', 'Edi', 'Laki-laki', 'demak', '089987789098');
+('106205', 'yayat', 'Laki-laki', 'RPL1', '083825292919'),
+('106206', 'maikel', 'Laki-laki', 'RPL1', '085172442919');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_buku`
+-- Table structure for table `tb_buku`
 --
 
 CREATE TABLE `tb_buku` (
@@ -82,23 +75,20 @@ CREATE TABLE `tb_buku` (
   `pengarang` varchar(30) NOT NULL,
   `penerbit` varchar(30) NOT NULL,
   `th_terbit` year(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `tb_buku`
+-- Dumping data for table `tb_buku`
 --
 
 INSERT INTO `tb_buku` (`id_buku`, `judul_buku`, `pengarang`, `penerbit`, `th_terbit`) VALUES
-('B001', 'Matematika', 'anastasya', 'armi print', 2010),
-('B002', 'RPL 2', 'Eko', 'UMK', 2020),
-('B003', 'C++', 'Anton', 'Toni Perc', 2010),
-('B004', 'CI 4', 'anastasya', 'armi print', 2009),
-('B005', 'Data Mining', 'Anton', 'Toni Perc', 2020);
+('B001', 'indahnya kebun milik bapak yay', 'yayat otomotif', 'el claim', '2025'),
+('B002', 'bapak kasmin yang ceria', 'kasmin', 'el pedas', '2025');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_pengguna`
+-- Table structure for table `tb_pengguna`
 --
 
 CREATE TABLE `tb_pengguna` (
@@ -107,20 +97,20 @@ CREATE TABLE `tb_pengguna` (
   `username` varchar(20) NOT NULL,
   `password` varchar(35) NOT NULL,
   `level` enum('Administrator','Petugas','','') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `tb_pengguna`
+-- Dumping data for table `tb_pengguna`
 --
 
 INSERT INTO `tb_pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, `level`) VALUES
-(1, 'M ivan S', 'admin',md5('123'), 'Administrator'),
-(5, 'Mivan', 'ivan','123', 'Administrator');
+(1, 'Cristian Michael', 'admin', '202cb962ac59075b964b07152d234b70', 'Administrator'),
+(6, 'yayat', 'yayat', '202cb962ac59075b964b07152d234b70', 'Petugas');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tb_sirkulasi`
+-- Table structure for table `tb_sirkulasi`
 --
 
 CREATE TABLE `tb_sirkulasi` (
@@ -130,24 +120,22 @@ CREATE TABLE `tb_sirkulasi` (
   `tgl_pinjam` date NOT NULL,
   `tgl_kembali` date NOT NULL,
   `status` enum('PIN','KEM') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `tb_sirkulasi`
+-- Dumping data for table `tb_sirkulasi`
 --
 
 INSERT INTO `tb_sirkulasi` (`id_sk`, `id_buku`, `id_anggota`, `tgl_pinjam`, `tgl_kembali`, `status`) VALUES
-('S001', 'B001', 'A001', '2020-06-23', '2020-06-30', 'KEM'),
-('S002', 'B002', 'A001', '2020-06-13', '2020-06-20', 'PIN'),
-('S003', 'B003', 'A002', '2020-06-22', '2020-06-29', 'PIN'),
-('S004', 'B002', 'A005', '2020-06-23', '2020-06-30', 'PIN');
+('S001', 'B001', '106206', '2024-12-08', '2024-12-15', 'PIN'),
+('S002', 'B002', '106205', '2024-12-20', '2024-12-27', 'KEM');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `log_pinjam`
+-- Indexes for table `log_pinjam`
 --
 ALTER TABLE `log_pinjam`
   ADD PRIMARY KEY (`id_log`),
@@ -155,25 +143,25 @@ ALTER TABLE `log_pinjam`
   ADD KEY `id_buku` (`id_buku`);
 
 --
--- Indeks untuk tabel `tb_anggota`
+-- Indexes for table `tb_anggota`
 --
 ALTER TABLE `tb_anggota`
   ADD PRIMARY KEY (`id_anggota`);
 
 --
--- Indeks untuk tabel `tb_buku`
+-- Indexes for table `tb_buku`
 --
 ALTER TABLE `tb_buku`
   ADD PRIMARY KEY (`id_buku`);
 
 --
--- Indeks untuk tabel `tb_pengguna`
+-- Indexes for table `tb_pengguna`
 --
 ALTER TABLE `tb_pengguna`
   ADD PRIMARY KEY (`id_pengguna`);
 
 --
--- Indeks untuk tabel `tb_sirkulasi`
+-- Indexes for table `tb_sirkulasi`
 --
 ALTER TABLE `tb_sirkulasi`
   ADD PRIMARY KEY (`id_sk`),
@@ -181,34 +169,34 @@ ALTER TABLE `tb_sirkulasi`
   ADD KEY `id_anggota` (`id_anggota`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `log_pinjam`
+-- AUTO_INCREMENT for table `log_pinjam`
 --
 ALTER TABLE `log_pinjam`
-  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `tb_pengguna`
+-- AUTO_INCREMENT for table `tb_pengguna`
 --
 ALTER TABLE `tb_pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `log_pinjam`
+-- Constraints for table `log_pinjam`
 --
 ALTER TABLE `log_pinjam`
   ADD CONSTRAINT `log_pinjam_ibfk_1` FOREIGN KEY (`id_anggota`) REFERENCES `tb_anggota` (`id_anggota`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `log_pinjam_ibfk_2` FOREIGN KEY (`id_buku`) REFERENCES `tb_buku` (`id_buku`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `tb_sirkulasi`
+-- Constraints for table `tb_sirkulasi`
 --
 ALTER TABLE `tb_sirkulasi`
   ADD CONSTRAINT `tb_sirkulasi_ibfk_1` FOREIGN KEY (`id_buku`) REFERENCES `tb_buku` (`id_buku`) ON DELETE CASCADE ON UPDATE CASCADE,
